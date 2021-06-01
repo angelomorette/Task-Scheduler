@@ -1,0 +1,36 @@
+﻿@model TaskScheduler.Models.LoginModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <h3>Login de Usuários</h3>
+    @Html.ActionLink("Criar conta de usuario", "Cadastro")
+        <hr />
+
+        <!-- Formulário para login de usuários -->
+        @using (Html.BeginForm("AutenticarUsuario", "Usuario", FormMethod.Post))
+        {
+            @Html.LabelFor(u => u.Login) <br />
+            @Html.TextBoxFor(u => u.Login)
+            @Html.ValidationMessageFor(u => u.Login)
+            <br /><br />
+
+            @Html.LabelFor(u => u.Senha) <br />
+            @Html.TextBoxFor(u => u.Senha)
+            @Html.ValidationMessageFor(u => u.Senha)
+            <br /><br />
+
+            <input type="submit" value="Acessar Sistema"/>
+
+            <p>
+                @ViewBag.Mensagem
+            </p>
+        }
+        <div>
+        </div>
+</body>
+</html>
